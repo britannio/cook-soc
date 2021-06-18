@@ -1,0 +1,73 @@
+"""Exposes a URL that specifies the behaviour of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behaviour of this scalar."""
+  url: String!
+) on SCALAR
+
+type AuthCodeResponse {
+  errorMessage: String
+  success: Boolean!
+}
+
+type AuthTokenResponse {
+  errorMessage: String
+  authToken: String
+  success: Boolean!
+}
+
+type CreateRecipeResponse {
+  recipe: Recipe
+  errorMessage: String
+  success: Boolean!
+}
+
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
+
+type DeleteAccountResponse {
+  success: Boolean!
+}
+
+type Mutation {
+  createRecipe(options: RecipeInput!): CreateRecipeResponse!
+  sendAuthCode(email: String!): AuthCodeResponse!
+  getAuthToken(code: String!, email: String!): AuthTokenResponse!
+  deleteAccount: DeleteAccountResponse!
+}
+
+type Query {
+  hello: String!
+  getUser: UserResponse!
+}
+
+type Recipe {
+  id: String!
+  name: String!
+  instructions: String!
+  ingredients: String!
+  info: String!
+  creatorId: String!
+}
+
+input RecipeInput {
+  name: String!
+  ingredients: String!
+  instructions: String!
+  info: String!
+}
+
+type User {
+  id: String!
+  name: String!
+  email: String!
+  createdAt: DateTime!
+  isComittee: Boolean!
+}
+
+type UserResponse {
+  user: User
+  success: Boolean!
+}
+

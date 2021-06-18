@@ -1,0 +1,54 @@
+include: all_lint_rules.yaml
+analyzer:
+  # strong-mode:
+  #  implicit-dynamic: false
+  #  implicit-casts: false
+  errors:
+    # treat missing required parameters as a warning (not a hint)
+    # missing_required_param: warning
+    # treat missing returns as a warning (not a hint)
+    missing_return: warning
+    # Otherwise cause the import of all_lint_rules to warn because of some rules conflicts.
+    # The conflicts are fixed in this file instead, so we can safely ignore the warning.
+    included_file_warning: ignore
+  exclude:
+    - "bin/cache/**"
+    - "**/*.freezed.dart"
+    - "**/*.g.dart"
+    - "**/*.gen.dart"
+    - "**/*.gql.dart"
+    - "**/*.config.dart"
+    - "**/*.gr.dart"
+    - "**/test/**"
+    - "lib/core/l10n/generated/**"
+
+linter:
+  rules:
+    # false positives
+    prefer_const_declarations: false
+    sort_pub_dependencies: false
+
+    # Desirable rules that could be enabled in the future
+    public_member_api_docs: false
+
+    # Opinionated rules
+    prefer_const_constructors: false
+    always_put_required_named_parameters_first: false
+    avoid_redundant_argument_values: false
+    prefer_relative_imports: false
+    always_put_control_body_on_new_line: false
+    always_specify_types: false
+    avoid_function_literals_in_foreach_calls: false
+    prefer_if_elements_to_conditional_expressions: false
+    unnecessary_final: false
+    omit_local_variable_types: false
+    do_not_use_environment: false
+    prefer_expression_function_bodies: false
+    avoid_types_on_closure_parameters: false
+    flutter_style_todos: false
+    diagnostic_describe_all_properties: false
+    prefer_double_quotes: false
+    parameter_assignments: false
+    unnecessary_raw_strings: false
+    prefer_constructors_over_static_methods: false
+    prefer_mixin: false

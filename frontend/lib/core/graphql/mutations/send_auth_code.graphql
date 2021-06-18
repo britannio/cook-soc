@@ -1,0 +1,8 @@
+mutation SendAuthCode(
+$email: String!
+) {
+    sendAuthCode(email: $email) {
+        errorMessage
+        success
+    }
+}

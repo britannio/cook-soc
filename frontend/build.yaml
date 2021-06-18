@@ -1,0 +1,62 @@
+# Configuration for the build_runner library which is responsible for code 
+# generation performed when running `derry build` aka
+# `flutter packages pub run build_runner build`
+targets:
+  $default:
+    sources:
+      exclude:
+        # - "**/components/**"
+        # - "**/exceptions/**"
+        # - "test/**"
+
+    builders:
+      gql_build|schema_builder:
+        enabled: true
+        generate_for:
+          - lib/core/graphql/**
+      gql_build|ast_builder:
+        enabled: true
+        generate_for:
+          - lib/core/graphql/**
+      gql_build|serializer_builder:
+        enabled: true
+        options:
+          schema: cooksoc|lib/core/graphql/schema.graphql
+      gql_build|data_builder:
+        enabled: true
+        generate_for:
+          - lib/core/graphql/**
+        options:
+          schema: cooksoc|lib/core/graphql/schema.graphql
+      gql_build|var_builder:
+        enabled: true
+        generate_for:
+          - lib/core/graphql/**
+        options:
+          schema: cooksoc|lib/core/graphql/schema.graphql
+
+      ferry_generator|req_builder:
+        enabled: true
+        generate_for:
+          - lib/core/graphql/**
+        options:
+          schema: cooksoc|lib/core/graphql/schema.graphql
+
+      built_value_generator|built_value:
+        enabled: true
+        generate_for:
+          - lib/core/graphql/**
+
+      freezed:
+        generate_for:
+          - "**/models/**"
+          - "**/unions/**"
+
+      json_serializable:
+        generate_for:
+          - "**/models/**"
+          - "**/unions/**"
+
+      injectable_generator|injectable_config_builder:
+        generate_for:
+          - "lib/dependency_injection.dart"

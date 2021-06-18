@@ -1,0 +1,12 @@
+query GetUser() {
+    getUser() {
+        success
+        user {
+            id
+            name
+            email
+            createdAt
+            isComittee
+        }
+    }
+}

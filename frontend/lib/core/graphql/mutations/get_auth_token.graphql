@@ -1,0 +1,10 @@
+mutation GetAuthToken(
+$email: String!
+$code: String!
+) {
+    getAuthToken(email: $email, code: $code) {
+        authToken
+        success
+        errorMessage
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "files.exclude": {
+        "**/*.g.dart": false,
+		"**/.git": false,
+		"**/*.ast.gql.dart": true,
+		"**/*.op.gql.dart": true,
+		"**/*.var.gql.dart": true,
+		"**/*.gql.g.dart": true
+    },
+}
